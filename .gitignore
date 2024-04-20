@@ -1,0 +1,20 @@
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+*.swp
+._*
+
+# Directories
+tmp/
+vendor/
+
+# Environment variables file
+.env
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# macOS specific files
+.DS_Store
