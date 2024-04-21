@@ -1,25 +1,29 @@
 FROM golang:1.22.0-bullseye
  
-# Creates an app directory to hold your app’s source code
+# Creates an app directory to hold the app's source code
 WORKDIR /app
  
-# Copies all files from your root directory into /app
+# Copies all files from the root directory into /app
 COPY . ./
  
 # Installs Go dependencies
 RUN go mod download
 
-# Install Dev Dependencies
+# Installs Dev Dependencies
+# TODO This only applies to dev
 RUN go install github.com/cosmtrek/air@latest
  
-# Builds your app with optional configuration (Only needed for production)
+# Builds the app with optional configuration
+# TODO This only applies to production
 # RUN CGO_ENABLED=0 GOOS=linux go build -o chia
  
-# # Tells Docker which network port your container listens on
+# Tells Docker which network port the container listens on
 EXPOSE 8080
  
-# Specifies the executable command that runs when the container starts (production)
+# Specifies the executable command that runs when the container starts
+# TODO This only applies to production
 # CMD ./chia
 
-# Specifies the executable command that runs when the container starts (localDev)
+# Specifies the executable command that runs when the container starts
+# TODO This only applies to dev
 CMD air

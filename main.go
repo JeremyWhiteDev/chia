@@ -7,7 +7,7 @@ import (
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
-	fmt.Fprint(w, "helloWorld") 
+	fmt.Fprint(w, "Hello World") 
 }
 
 func main() {
