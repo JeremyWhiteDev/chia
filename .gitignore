@@ -12,8 +12,7 @@ vendor/
 # Environment variables file
 .env
 
-# IDE and editor files
-.vscode/
+# IDE and editor file
 .idea/
 
 # macOS specific files
