@@ -2,6 +2,8 @@
 
 Chia is a small but mighty application for keeping track of the precious things you own!
 
+🚧🚧🚧 Under Construction 🚧🚧🚧
+
 ### The Problem
 
 Ever had to create a spread sheet of all your most precious items for home owners or renter's insurance? No? Well, you probably should and just haven't. Any number of things can happen in real life (flood, tornado, theft) where your most precious and expensive items can be lost. Usually, when submitting a police report or insurance claim, it is best to provide all the information you can about an item:
@@ -18,6 +20,22 @@ That's where Chia comes in.
 ### The Solution
 
 Chia aims to provide a sleek user interface for tracking all the above information. Say goodbye to that annoying spreadsheet!
+
+## Installation
+
+This project runs in a group of Docker containers and can be launched via the docker-compose up script,
+
+## Local Development
+
+There is another docker compose file for local development.
+
+## Debugging in Local Development
+
+Chia is developed in vscode. All the necessary launch/debug configs can be found in this repo. The design of the local development docker container may have compatibility issues with other debug clients.
+
+The process that runs the go application in the local development container is Delve, the same process that the vs-code plugin expects to attach to.
+
+Within the container, Air, a file watcher, manages building and executing the go application. When source code files are changed during development, Air automatically rebuilds the project, and delegates the execution of the binary to Delve. When delve executes the binary, unfortunately, any current debug session connected to the execution of a previous version of the binary is closed. This is a known limititation of the vscode-go debug experience, as there is no way to setup automatic reconnection of the debugger.
 
 ### Why call it Chia?
 
