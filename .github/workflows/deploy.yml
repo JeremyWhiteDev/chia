@@ -32,5 +32,5 @@ jobs:
           username: ${{ secrets.REMOTE_USERNAME }}
           key: ${{ secrets.REMOTE_USER_SSH_KEY }}
           script: |
-            cd /
-            touch success
+            cd / && touch success
+            
