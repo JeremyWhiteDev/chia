@@ -23,7 +23,7 @@ jobs:
         run: docker build -t chia-web:latest -f Dockerfile.dev .
 
       - name: Push Docker image to DockerHub
-        run: docker push chia-web:latest
+        run: docker push jwhitedev/chia-web:latest
 
       - name: SSH into remote server and deploy
         uses: appleboy/ssh-action@master
