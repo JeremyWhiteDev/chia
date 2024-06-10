@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t jwhitedev/chia-web:latest -f Dockerfile.dev .
+        run: docker build -t jwhitedev/chia-web:latest -f Dockerfile.prod .
 
       - name: Push Docker image to DockerHub
         run: docker push jwhitedev/chia-web:latest
