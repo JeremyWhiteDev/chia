@@ -41,4 +41,6 @@ jobs:
           username: ${{ secrets.REMOTE_USERNAME }}
           key: ${{ secrets.REMOTE_USER_SSH_KEY }}
           script: |
+            newgrp docker |
             docker compose -f /srv/compose.prod.yaml up -d
+            
