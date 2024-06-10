@@ -41,4 +41,4 @@ jobs:
           username: ${{ secrets.REMOTE_USERNAME }}
           key: ${{ secrets.REMOTE_USER_SSH_KEY }}
           script: |
-            docker compose up -d of /srv/compose.prod.yaml
+            docker compose -f /srv/compose.prod.yaml up -d
