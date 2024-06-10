@@ -35,5 +35,4 @@ jobs:
           username: ${{ secrets.REMOTE_USERNAME }}
           key: ${{ secrets.REMOTE_USER_SSH_KEY }}
           script: |
-            touch success
-          #   add command that transfers the docker-compose.prod.yaml file from the root of the repo to an app directory on the remote server
+            docker-compose up -d of /srv/compose.prod.yaml
