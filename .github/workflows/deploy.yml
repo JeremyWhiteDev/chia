@@ -25,9 +25,15 @@ jobs:
       - name: Push Docker image to DockerHub
         run: docker push jwhitedev/chia-web:latest
 
-      - name: Copy file to remote server
-        run: scp -i ${{ secrets.REMOTE_USER_SSH_KEY }} compose.prod.yaml ${{ secrets.REMOTE_USERNAME }}@${{ secrets.REMOTE_HOST }}:/srv
-
+      - name: Copy compose file to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USERNAME }}
+          key: ${{ secrets.REMOTE_USER_SSH_KEY }}
+          source: "compose.prod.yaml"
+          target: "/srv"
+          
       - name: SSH into remote server and deploy
         uses: appleboy/ssh-action@master
         with:
