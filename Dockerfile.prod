@@ -12,6 +12,13 @@ RUN go mod download
 # Builds the app with optional configuration
 RUN CGO_ENABLED=0 GOOS=linux go build -o chia
 
+# Installs tailwindcss and builds minified output.css
+RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-arm64
+RUN chmod +x tailwindcss-linux-arm64
+RUN mv tailwindcss-linux-arm64 tailwindcss
+
+RUN ./tailwindcss -i style/input.css -o style/output.css --minify
+
 # Tells Docker which network port the container listens on
 EXPOSE 8080 
 
