@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <link rel="stylesheet" href="style/output.css" />
   <body>
-    Welcome to my website! {{.}}
     <!-- the . indicates the  data context provided to the template-->
-    <div>{{ block "card" .}}{{end}}</div>
+    <div>{{ block "sign-in-form" .}}{{end}}</div>
     <!-- I have to provide the context here, or I get a server error -->
   </body>
 </html>
