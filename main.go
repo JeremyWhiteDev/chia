@@ -1,13 +1,16 @@
 package main
 
 import (
-	"fmt"
+	"html/template"
 	"net/http"
 )
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/plain")
-	fmt.Fprint(w, "Hello World!") 
+	w.Header().Set("Content-Type", "text/html")
+	data := "Hello World"
+	tmpl := template.Must(template.ParseFiles("templates/index.html", "templates/card.html"))
+	
+	tmpl.Execute(w, data)
 }
 
 func main() {
