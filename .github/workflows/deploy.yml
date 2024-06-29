@@ -33,7 +33,7 @@ jobs:
           key: ${{ secrets.REMOTE_USER_SSH_KEY }}
           source: "compose.prod.yaml"
           target: "/srv"
-          
+
       - name: SSH into remote server and deploy
         uses: appleboy/ssh-action@master
         with:
@@ -42,5 +42,5 @@ jobs:
           key: ${{ secrets.REMOTE_USER_SSH_KEY }}
           script: |
             newgrp docker |
+            docker compose pull -f /srv/compose.prod.yaml -q |
             docker compose -f /srv/compose.prod.yaml up -d
-            
