@@ -21,13 +21,29 @@ That's where Chia comes in.
 
 Chia aims to provide a sleek user interface for tracking all the above information. Say goodbye to that annoying spreadsheet!
 
-## Installation
+## Running the Production App via Docker
 
-This project runs in a group of Docker containers and can be launched via the docker-compose up script,
+Currently, this is a single container app, and can be installed directly from docker/hub and run with a single command:
+_Make sure docker engine is running on your machine._
+
+```
+docker pull jwhitedev/chia-web
+docker run --rm \
+    -p <port>:8080
+    --name chia
+    jwhitedev/chia-web
+```
+
+where `<port>` is the port you want to run the web app on.
+
+Shortly, this will be a multicontainer app and may require multiple docker commands to run or a docker compose file.
 
 ## Local Development
 
-There is another docker compose file for local development.
+1. Clone the repo
+2. use the vscode task `docker: watch dev` to start the dev containers.
+3. To debug, use Run and Debug > Connect to Server
+4. To quit, use the vscode task `docker: stop dev`
 
 ## Debugging in Local Development
 
@@ -37,25 +53,19 @@ The process that runs the go application in the local development container is D
 
 Within the container, Air, a file watcher, manages building and executing the go application. When source code files are changed during development, Air automatically rebuilds the project, and delegates the execution of the binary to Delve. When delve executes the binary, unfortunately, any current debug session connected to the execution of a previous version of the binary is closed. This is a known limititation of the vscode-go debug experience, as there is no way to setup automatic reconnection of the debugger.
 
-### Why call it Chia?
-
-Because a chia seed is an incredibliy small little seed. And this app aims to be an incredibly small, little app that's _fast_ to develop and deploy.
-
-There is no React here. No big frameworks that require lots of dependencies, build steps, etc. This is a server-generated/dead simple web app that serves html to clients. Any external dependencies are linked in the html.
-
 ### Technologies Used
 
 To keep chia small, it will use:
 
 - Docker (for portability)
-- MySQL
-- Golang
-- HTMX
-- TailwindCSS
+- MySQL (Upcoming)
+- Golang (Upcoming)
+- HTMX (Upcoming)
+- TailwindCSS (Upcoming)
 - Vanilla JS
 - Firebase
 
-Docker. Even though we want this to be small, we also want this to be very portable. We don't want developers to have to worry about environment setup. We also want dev to mirror production as closely as possible. Running the application in a container also provides another level of virtualizaton, so that the host server can be run on any OS that is compatible with Docker.
+_Docker:_ Even though we want this to be small, we also want this to be very portable. We don't want developers to have to worry about environment setup. We also want dev to mirror production as closely as possible. Running the application in a container also provides another level of virtualizaton, so that the host server can be run on any OS that is compatible with Docker.
 
 _MySQL:_ Used it before. There's enough new stuff here, so let's keep the db choice easy.
 

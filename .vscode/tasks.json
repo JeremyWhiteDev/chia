@@ -3,16 +3,15 @@
   "tasks": [
     {
       "type": "shell",
-      "command": "docker-compose",
+      "command": "docker",
       "label": "docker: stop dev",
-      "args": ["-f", "docker-compose.dev.yaml", "stop"]
+      "args": ["compose", "-f", "compose.dev.yaml", "stop"]
     },
     {
       "type": "shell",
-      "command": "docker-compose",
+      "command": "docker",
       "label": "docker: watch dev",
-      "args": ["-f", "docker-compose.dev.yaml", "watch"],
-      "problemMatcher": []
+      "args": ["compose", "-f", "compose.dev.yaml", "watch"]
     }
   ]
 }
