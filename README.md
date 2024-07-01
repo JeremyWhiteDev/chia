@@ -40,11 +40,11 @@ Shortly, this will be a multicontainer app and may require multiple docker comma
 
 ## Local Development
 
-1. Clone the repo
-2. use the vscode task `docker: watch dev` to start the dev containers (or use the command `docker compose -f compose.dev.yaml watch`)
+1. Fork the repo and Clone it to your local machine.
+2. Use the vscode task `docker: watch dev` to start the dev containers (or use the command `docker compose -f compose.dev.yaml watch`)
 3. To debug, use Run and Debug > Connect to Server
 4. To quit, use the vscode task `docker: stop dev` (or use the the command `docker compose -f compose.dev.yaml stop`)
 
 ## Technical Docs
 
-Please see the wiki describing _Architecture and Technologies of Chia_ as well as information regarding _Contributions_
+Please see the wiki describing _[Architecture and Technologies of Chia](https://github.com/JeremyWhiteDev/chia/wiki/Architecture-Snapshot)_ as well as information regarding _[Contributions](https://github.com/JeremyWhiteDev/chia/wiki/Contributing)_
